@@ -1,0 +1,13 @@
+import socket
+def get_ip_addresses(domain)
+    try:
+        addresses = socket.getaddrinfo(domain, None)
+        for info in addresses:
+            ip_address = info[4][0]
+            print(f"The IP address of {domain} is {ip_address}")
+    except socket.error as e:
+        print(f"Unable to resolve {domain}: {e}")
+
+# Example usage
+domain_name = "www.example.com"
+get_ip_addresses(domain_name)
